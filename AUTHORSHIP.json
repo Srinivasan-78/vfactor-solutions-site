@@ -1,0 +1,82 @@
+{
+  "schema": "authormark/manifest/1",
+  "author": "Srinivasan Vijayaraghavan",
+  "email": "srinivasan.shyam2000@gmail.com",
+  "github": "https://github.com/Srinivasan-78",
+  "sealedAt": "2026-08-29T13:21:57.551Z",
+  "fileCount": 14,
+  "digest": "41a25e743ba61c014fa02ff648f0e6d507e882a4f598a2f19da7f9822a915cfd",
+  "proof": "5324d811fd1ffab0c2014345b0090fc9b5d2b60bd496988d5f1f81d92a29e508",
+  "files": [
+    {
+      "path": ".github/workflows/authormark.yml",
+      "sha256": "b5cab2b0d7b18cd416758ec39f9677144704f615095f279d00e6f47ed2164e11",
+      "bytes": 1138
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "6f4bb78900bf58971b266a4df35ff4137cd210494cc71089ecc7f3feb6130012",
+      "bytes": 1511
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "a4f80ec424ce2382e519318c7cdbc38276dc8575a452e566c67f21c1eb0ca882",
+      "bytes": 822
+    },
+    {
+      "path": "README.md",
+      "sha256": "5a06de501bcf77c1ae10e10b9f4c099e35f17588a01cc1a882e973dacb7dd23f",
+      "bytes": 24012
+    },
+    {
+      "path": "docs/404.html",
+      "sha256": "8e4affaf0bc1f3470a044acc53bae645ffeaeeb389943b23172967efc6aa9220",
+      "bytes": 6297
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "cee030b5c3d6a3d5ce89b8dc85d2cbd3c15bff5a8c6852125249a9af4461c428",
+      "bytes": 3779
+    },
+    {
+      "path": "docs/assets/Readme.md",
+      "sha256": "1eb65b9bb0fd4ec38179b7e57e4ddeb90f453fc27ae1ac8598fa2836e09b1e50",
+      "bytes": 811
+    },
+    {
+      "path": "docs/assets/css/style.css",
+      "sha256": "3de1bfbc97df8362c73506e309c8b25ed1d775b3b64528c4d81694e1fdf7332e",
+      "bytes": 25546
+    },
+    {
+      "path": "docs/assets/img/favicon.svg",
+      "sha256": "d3042253cde8318b1c544d577034e25fda0dc7a8561cd840a4ccaa2ba10980b3",
+      "bytes": 1134
+    },
+    {
+      "path": "docs/assets/js/main.js",
+      "sha256": "e0759e7ff203a35d2da77305bf853fcd454b3d0d39dc7e49d266d635143a8dae",
+      "bytes": 14606
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "bdfc395542ed0c186acff58505b3851b6f629f82df9db25123a1cda3f849d59a",
+      "bytes": 37226
+    },
+    {
+      "path": "docs/privacy.html",
+      "sha256": "5f0d0a5198192ac23a939930a820963214d1bb4ebcc746c1320bf8cf974bf52c",
+      "bytes": 9242
+    },
+    {
+      "path": "docs/terms.html",
+      "sha256": "eedd0aeae41f2aa70869ab846e8370785239dc3e374ece600eb0c2112d01e1d4",
+      "bytes": 11985
+    },
+    {
+      "path": "docs/thank-you.html",
+      "sha256": "2b55bda9bf2832cf6234193e0cad76069557a83211b1ada4d0b22f28393cbb41",
+      "bytes": 7688
+    }
+  ]
+}

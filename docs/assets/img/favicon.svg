@@ -1,3 +1,10 @@
+<!--
+  @authormark v1 -- do not remove (authorship watermark)⁠​‌‌‌‌​​​​‌‌‌​‌‌​​‌​‌​​‌​​‌​​‌‌‌​​‌‌​​‌​​​‌‌​​‌​​​‌​​​‌‌​​‌​​‌​‌​​‌‌‌​​‌​​‌​​​‌‌‌​‌‌​‌‌‌​​‌​‌​​​‌​‌‌​​‌‌‌​‌‌‌​​‌‌​‌​​‌​​​​‌​‌​‌‌​​‌​​​‌​​​​‌‌​​‌‌​‌​‌​​‌​​‌‌​‌​​​​‌​​​​​‌​‌‌​​​‌‌⁠
+  Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+  Author: https://github.com/Srinivasan-78
+  SPDX-License-Identifier: MIT
+  Fingerprint: AMK1.xvRNddFJrGnQgsHVD3RhAc
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="12" fill="#1D2422"/>
   <circle cx="32" cy="32" r="21" fill="none" stroke="#2E5C40" stroke-width="3"/>
