@@ -265,8 +265,8 @@ section{padding:84px 0;border-top:1px solid var(--line);}
   font-weight:500;
 }
 
-/* ---------- founder ---------- */
-.founder{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;}
+/* ---------- founder & journey ---------- */
+.founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;}
 .founder-card{background:var(--surface-inverse);color:var(--text-inverse);padding:36px;border-radius:var(--radius);}
 .founder-photo{
   width:108px;height:108px;border-radius:50%;object-fit:cover;object-position:center 20%;
@@ -287,6 +287,36 @@ section{padding:84px 0;border-top:1px solid var(--line);}
 .bio-list{display:flex;flex-direction:column;gap:14px;}
 .bio-list li{list-style:none;display:flex;gap:12px;font-size:15px;color:var(--ink-soft);}
 .bio-list li .ring{margin-top:7px;}
+
+/* ---------- unique leadership journey roadmap ---------- */
+.journey-wrap{margin-top:56px;padding-top:48px;border-top:1px solid var(--line);}
+.journey-head{max-width:680px;margin-bottom:32px;}
+.journey-head .eyebrow{margin-bottom:8px;}
+.journey-head h3.journey-title{font-family:var(--font-display);font-size:26px;font-weight:500;letter-spacing:-.01em;margin-bottom:8px;}
+.journey-head p{font-size:15px;color:var(--ink-soft);}
+
+.journey-track{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;}
+.journey-card{
+  background:var(--paper-raised);padding:24px 20px;border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow-card);display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
+  position:relative;
+}
+.journey-card:hover{transform:translateY(-4px);border-color:var(--field);box-shadow:0 12px 28px rgba(18,24,21,.08);}
+.journey-era{
+  font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--field-deep);
+  letter-spacing:.04em;display:flex;align-items:center;gap:8px;margin-bottom:8px;
+}
+.journey-era .node{
+  width:8px;height:8px;border-radius:50%;background:var(--field);flex-shrink:0;box-shadow:0 0 0 3px var(--field-tint);
+}
+.journey-badge{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+  background:var(--field-tint);color:var(--field-deep);padding:3px 8px;border-radius:4px;
+  display:inline-block;width:fit-content;margin-bottom:12px;
+}
+.journey-card h4{font-size:16px;margin-bottom:8px;color:var(--ink);}
+.journey-card p{font-size:13.5px;line-height:1.55;color:var(--ink-soft);}
 
 /* ---------- forms ---------- */
 .form-card{border:1px solid var(--line);background:var(--paper-raised);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow-card);}
@@ -445,6 +475,7 @@ form[aria-busy="true"] textarea{pointer-events:none;}
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .process{grid-template-columns:1fr;}
+  .journey-track{grid-template-columns:repeat(2,1fr);}
 }
 
 @media (max-width:860px){
@@ -456,7 +487,7 @@ form[aria-busy="true"] textarea{pointer-events:none;}
   section{padding:64px 0;}
   .section-head h2{font-size:28px;}
   .service-grid{grid-template-columns:1fr;}
-  .founder{grid-template-columns:1fr;gap:36px;}
+  .founder-grid{grid-template-columns:1fr;gap:36px;}
   .cand-wrap,.contact-wrap{grid-template-columns:1fr;}
   .foot-top{grid-template-columns:1fr;gap:24px;}
   .navlinks{display:none;}
@@ -470,6 +501,7 @@ form[aria-busy="true"] textarea{pointer-events:none;}
 }
 
 @media (max-width:560px){
+  .journey-track{grid-template-columns:1fr;}
   .stat-strip{grid-template-columns:1fr;}
   .hero-actions .btn{width:100%;}
 
