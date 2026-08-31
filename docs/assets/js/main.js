@@ -367,65 +367,6 @@
     });
   });
 
-  /* ---------- specialization explorer ---------- */
-  var specTabs = document.querySelectorAll('.spec-tab');
-  var specPanels = document.querySelectorAll('.spec-panel');
-
-  Array.prototype.forEach.call(specTabs, function (tab) {
-    tab.addEventListener('click', function () {
-      var targetId = tab.getAttribute('data-tab');
-      Array.prototype.forEach.call(specTabs, function (t) {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      Array.prototype.forEach.call(specPanels, function (p) {
-        p.classList.remove('active');
-        p.hidden = true;
-      });
-
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      var panel = document.getElementById(targetId);
-      if (panel) {
-        panel.classList.add('active');
-        panel.hidden = false;
-      }
-      track('specialization/' + (tab.getAttribute('data-domain') || targetId));
-    });
-  });
-
-  /* quick-action buttons inside specialization cards */
-  Array.prototype.forEach.call(document.querySelectorAll('[data-spec-action]'), function (btn) {
-    btn.addEventListener('click', function () {
-      var action = btn.getAttribute('data-spec-action');
-      var domain = btn.getAttribute('data-spec-domain') || '';
-      if (action === 'apply') {
-        var candSection = document.getElementById('candidates');
-        var roleInput = document.getElementById('cd-role');
-        if (candSection) candSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-        if (roleInput && !roleInput.value) {
-          roleInput.value = domain;
-          roleInput.focus();
-        }
-      } else if (action === 'hire') {
-        var contactSection = document.getElementById('contact');
-        if (contactSection) contactSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      }
-      track('spec-action/' + action + '-' + domain);
-    });
-  });
-
-  /* ---------- faq analytics & mutual-close option ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll('.faq-item'), function (item) {
-    item.addEventListener('toggle', function () {
-      if (item.open) {
-        var summary = item.querySelector('.faq-summary');
-        var text = summary ? summary.textContent.trim().slice(0, 40) : 'faq';
-        track('faq/open/' + text);
-      }
-    });
-  });
-
   /* ---------- current year ---------- */
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
