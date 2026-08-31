@@ -284,9 +284,11 @@ section{padding:84px 0;border-top:1px solid var(--line);}
 .founder-links a:hover{color:var(--signal);}
 .founder-bio{margin-top:0;}
 .founder-bio h3{font-size:22px;margin-bottom:16px;}
-.bio-list{display:flex;flex-direction:column;gap:14px;}
-.bio-list li{list-style:none;display:flex;gap:12px;font-size:15px;color:var(--ink-soft);}
-.bio-list li .ring{margin-top:7px;}
+.bio-list{display:flex;flex-direction:column;gap:18px;}
+.bio-list li{list-style:none;display:flex;align-items:flex-start;gap:14px;font-size:15px;color:var(--ink-soft);line-height:1.6;}
+.bio-list li .ring{margin-top:6px;flex-shrink:0;}
+.bio-list li div{flex:1;}
+.bio-list li b{color:var(--ink);font-weight:600;}
 
 /* ---------- unique leadership journey roadmap ---------- */
 .journey-wrap{margin-top:56px;padding-top:48px;border-top:1px solid var(--line);}
@@ -341,9 +343,11 @@ section{padding:84px 0;border-top:1px solid var(--line);}
 /* ---------- candidates ---------- */
 .cand-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
 .cand-side p{color:var(--ink-soft);font-size:15px;margin-bottom:16px;}
-.cand-list{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
-.cand-list li{list-style:none;display:flex;gap:10px;font-size:14.5px;color:var(--ink-soft);}
-.cand-list li .ring{margin-top:6px;}
+.cand-list{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.cand-list li{list-style:none;display:flex;align-items:flex-start;gap:14px;font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+.cand-list li .ring{margin-top:6px;flex-shrink:0;}
+.cand-list li div{flex:1;}
+.cand-list li b{color:var(--ink);font-weight:600;}
 
 /* ---------- contact ---------- */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
