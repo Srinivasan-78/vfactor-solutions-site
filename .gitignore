@@ -11,3 +11,7 @@ Thumbs.db
 # Environment & local secrets
 .env
 .env.local
+
+# Master Bot hygiene additions
+__pycache__/
+*.py[cod]
