@@ -9,6 +9,7 @@
 (function () {
   'use strict';
 
+  var FIELD_SELECTOR = 'input:not([type="hidden"]):not(.hp), textarea, select';
   var root = document.documentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -264,7 +265,7 @@
   }
 
   function validateForm(form) {
-    var fields = form.querySelectorAll('input:not([type="hidden"]):not(.hp), textarea, select');
+    var fields = form.querySelectorAll(FIELD_SELECTOR);
     var firstBad = null;
     Array.prototype.forEach.call(fields, function (field) {
       var message = validityMessage(field);
@@ -283,7 +284,7 @@
     // without JS the markup keeps `required` and validates natively
     form.noValidate = true;
 
-    var fields = form.querySelectorAll('input:not([type="hidden"]):not(.hp), textarea, select');
+    var fields = form.querySelectorAll(FIELD_SELECTOR);
     Array.prototype.forEach.call(fields, function (field) {
       var event = field.type === 'checkbox' ? 'change' : 'blur';
       field.addEventListener(event, function () {
