@@ -155,16 +155,18 @@
     if (!stickyCta) return;
     if (navIsOpen() || bannerVisible()) { stickyCta.classList.remove('show'); return; }
 
+    // take every layout measurement in one batch so a single reflow serves them
+    var vh = window.innerHeight;
+
     // show once the hero call to action has scrolled away
-    var pastHero = true;
-    if (heroEl) pastHero = heroEl.getBoundingClientRect().bottom < 40;
+    var pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < 40 : true;
 
     // hide again where the real contact options are already on screen
     var atDestination = false;
     [contactEl, footEl].forEach(function (el) {
       if (!el) return;
       var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.85 && r.bottom > 0) atDestination = true;
+      if (r.top < vh * 0.85 && r.bottom > 0) atDestination = true;
     });
 
     stickyCta.classList.toggle('show', pastHero && !atDestination);
@@ -182,7 +184,9 @@
     Array.prototype.forEach.call(stickyCta.querySelectorAll('[data-track]'), function (el) {
       el.addEventListener('click', function () { track('sticky-cta/' + el.getAttribute('data-track')); });
     });
-    updateStickyCta();
+    // defer the first measure past the browser's initial layout so it reads
+    // clean geometry instead of forcing a synchronous reflow during load
+    window.requestAnimationFrame(updateStickyCta);
   }
 
   /* ---------- hero intent chips ---------- */
