@@ -7,6 +7,26 @@
  */
 /* vFactor Solutions — site styles */
 
+/* Metric-matched fallback faces. The page is laid out with these until the web
+   fonts arrive; the overrides make the fallback occupy the same space as the
+   real font, so the swap produces no layout shift (keeps CLS ~0). */
+@font-face{
+  font-family:'Inter fallback';
+  src:local('Arial');
+  ascent-override:90%;
+  descent-override:22.43%;
+  line-gap-override:0%;
+  size-adjust:107.12%;
+}
+@font-face{
+  font-family:'Fraunces fallback';
+  src:local('Georgia');
+  ascent-override:95%;
+  descent-override:23%;
+  line-gap-override:0%;
+  size-adjust:104%;
+}
+
 :root{
   --ink:#121815;
   --ink-soft:#4D5B53;
@@ -29,8 +49,8 @@
   --radius:12px;
   --radius-sm:8px;
   --shadow-card:0 2px 4px rgba(18,24,21,.03),0 12px 28px rgba(18,24,21,.05);
-  --font-display:'Fraunces',Georgia,serif;
-  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Fraunces','Fraunces fallback',Georgia,'Times New Roman',serif;
+  --font-body:'Inter','Inter fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 
