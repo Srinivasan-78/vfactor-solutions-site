@@ -67,14 +67,17 @@
     var navSections = Array.prototype.map.call(navLinks, function (a) {
       return document.querySelector(a.getAttribute('href'));
     });
+    var heroSection = document.querySelector('.hero');
     var navIo = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        var idx = navSections.indexOf(e.target);
         Array.prototype.forEach.call(navLinks, function (a) { a.classList.remove('active'); });
+        if (e.target === heroSection) return;
+        var idx = navSections.indexOf(e.target);
         if (idx > -1) navLinks[idx].classList.add('active');
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
+    if (heroSection) navIo.observe(heroSection);
     navSections.forEach(function (s) { if (s) navIo.observe(s); });
   }
 
@@ -185,7 +188,7 @@
   }
 
   /* ---------- forms: inline validation, loading state, no redirect ---------- */
-  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z0-9-]{2,}$/i;
 
   function fieldLabel(field) {
     var label = field.form.querySelector('label[for="' + field.id + '"]');
@@ -211,8 +214,8 @@
     if (field.type === 'tel' && value.replace(/[^0-9]/g, '').length < 7) {
       return 'Enter a phone number we can reach you on, including the country or area code.';
     }
-    if (field.name === 'links' && !/^([a-z]+:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(value)) {
-      return 'Enter a full link, for example linkedin.com/in/yourname.';
+    if (field.name === 'links' && !/^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(value)) {
+      return 'Enter an http(s) link, for example linkedin.com/in/yourname.';
     }
     if (field.tagName === 'TEXTAREA' && field.required && value.length < 10) {
       return 'Please add a little more detail — at least a sentence.';
