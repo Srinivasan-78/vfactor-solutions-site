@@ -9,6 +9,8 @@
   /* ---------- theme toggle ---------- */
   var toggle = document.getElementById('theme-toggle');
   if (toggle) {
+    var currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    toggle.setAttribute('aria-label', currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     toggle.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.classList.add('theming');
@@ -94,7 +96,7 @@
     var s = document.createElement('script');
     s.async = true;
     s.setAttribute('data-goatcounter', endpoint);
-    s.src = '//gc.zgo.at/count.js';
+    s.src = 'https://gc.zgo.at/count.js';
     document.body.appendChild(s);
   }
   function track(path) {
@@ -182,16 +184,6 @@
     window.requestAnimationFrame(updateStickyCta);
   }
 
-  /* ---------- hero intent chips ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll('.chip[data-target]'), function (chip) {
-    chip.addEventListener('click', function () {
-      var target = document.querySelector(chip.getAttribute('data-target'));
-      if (!target) return;
-      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      track('intent/' + chip.getAttribute('data-intent'));
-    });
-  });
-
   /* ---------- forms: inline validation, loading state, no redirect ---------- */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
@@ -236,7 +228,7 @@
       node.className = 'field-error';
       node.id = id;
       node.setAttribute('role', 'alert');
-      var anchor = field.type === 'checkbox' ? field.closest('.form-consent') : field;
+      var anchor = (field.type === 'checkbox' && field.closest('.form-consent')) || field;
       anchor.parentNode.insertBefore(node, anchor.nextSibling);
     }
     return node;
@@ -304,6 +296,8 @@
       }
     }
 
+    window.addEventListener('pageshow', function () { setBusy(false); });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -355,10 +349,14 @@
         })
         .catch(function () {
           if (status) {
+            var fallback = form.getAttribute('data-fallback-email') || '';
             status.setAttribute('data-state', 'error');
-            status.innerHTML = 'That did not send. Email <a href="mailto:' +
-              (form.getAttribute('data-fallback-email') || '') + '">' +
-              (form.getAttribute('data-fallback-email') || '') + '</a> instead.';
+            status.textContent = 'That did not send. Email ';
+            var link = document.createElement('a');
+            link.href = 'mailto:' + fallback;
+            link.textContent = fallback;
+            status.appendChild(link);
+            status.appendChild(document.createTextNode(' instead.'));
           }
           setBusy(false);
         });

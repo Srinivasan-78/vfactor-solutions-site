@@ -19,7 +19,6 @@ docs/
   assets/css/style.css  all styles, shared by every page
   assets/js/main.js     all behaviour, shared by every page
   assets/img/           favicons, social preview, founder photo derivatives
-  assets/founder.png    master founder photo (source only, never served)
 ```
 
 `index.html` used to carry byte-identical copies of the CSS and JS inline. Both
